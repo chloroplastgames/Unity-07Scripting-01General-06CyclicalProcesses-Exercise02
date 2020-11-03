@@ -41,11 +41,7 @@ public class PointsMovement : MonoBehaviour
      
     void Update()
     {
-        if (_gameData.Loops == 6)
-        {
-            StopCoroutine(_myRoutine);
-            _gameData.Loops = 0;
-        }
+        
     }
     #endregion
 

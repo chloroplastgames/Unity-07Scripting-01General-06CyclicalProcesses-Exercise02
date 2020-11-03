@@ -18,7 +18,7 @@ public class MotionGameData: ScriptableObject
 {
     #region PRIVATE VARIABLES
 
-    private int _loops;
+    [SerializeField] private int _loops;
 
     [SerializeField] private Vector3 _currentValue;
 

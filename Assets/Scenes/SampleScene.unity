@@ -157,11 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d863bcecc7a35c441bcb8bce39067924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _values:
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0, g: 0.7320928, b: 0.9811321, a: 1}
-  - {r: 0.88987577, g: 1, b: 0, a: 1}
-  _transition: 2
+  _gameData: {fileID: 11400000, guid: ef9abb53041e3f54ba216c7df69e4935, type: 2}
 --- !u!135 &128114826
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -247,14 +243,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 128114824}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6a0ff701fff6a34ea4d542ed62fc03f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7db1a8544d6b18b4b98e58bacb9880da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _values:
-  - {x: 4, y: 0, z: 0}
-  - {x: 0, y: 4, z: 0}
-  - {x: -4, y: 0, z: 0}
-  _transition: 2
+  _gameData: {fileID: 11400000, guid: be69f0770e7554c45bb80adf4f546643, type: 2}
 --- !u!114 &128114831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,9 +259,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c74e0b5be168404996fdf4137d730f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _loops: 3
-  _scaleMultiplier: 2
-  _transition: 1
+  _myTransform: {fileID: 0}
+  _gameData: {fileID: 11400000, guid: eda432c5d81b0e44185b929eee41edf2, type: 2}
+  _MotionData: {fileID: 11400000, guid: be69f0770e7554c45bb80adf4f546643, type: 2}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

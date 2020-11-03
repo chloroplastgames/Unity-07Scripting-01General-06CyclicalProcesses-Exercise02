@@ -20,7 +20,7 @@ public class ColorGameData : ScriptableObject
 {
     #region PRIVATE VARIABLES
 
-    private int _loops;
+    [SerializeField] private int _loops;
 
     [SerializeField] private Color _currentValue;
 

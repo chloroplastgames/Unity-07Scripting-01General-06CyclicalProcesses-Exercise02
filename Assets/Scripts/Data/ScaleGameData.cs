@@ -10,7 +10,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Data", menuName = "Prototype/Motion Game Data")]
+[CreateAssetMenu(fileName = "Data", menuName = "Prototype/Scale Game Data")]
 /// <summary>
 /// Clase responsable de almacenar datos relacionados con la escala.
 /// </summary>
@@ -18,9 +18,9 @@ public class ScaleGameData : ScriptableObject
 {
     #region PRIVATE VARIABLES
 
-    private int _loops;
+    [SerializeField] private int _loops;
 
-    [SerializeField] private float _currentValue;
+    [SerializeField] private Vector3 _currentValue;
 
     [SerializeField] private float _scaleMultiplier;
 
@@ -28,9 +28,7 @@ public class ScaleGameData : ScriptableObject
 
     [SerializeField] private float _transition = 2f;
 
-    [SerializeField] private bool _scale;
-
-    [SerializeField] private AnimationCurve _scaleCurve;
+    [SerializeField] private bool _scale; 
 
     #endregion
 
@@ -43,14 +41,13 @@ public class ScaleGameData : ScriptableObject
     public float TransitionStep { get => _transitionStep; set => _transitionStep = value; }
 
     /// <value> Variable responsable de devolver la position actual. </value>v
-    public float CurrentValue { get => _currentValue; set => _currentValue = value; } 
-     
+    public Vector3 CurrentValue { get => _currentValue; set => _currentValue = value; }
 
+    public float ScaleMultiplier { get => _scaleMultiplier; private set { } }
+
+    public bool Scale { get => _scale; set => _scale = value; }
     /// <value> Variable responsable de devolver la duracion dela transition. </value>  
-    public float Transition { get => _transition; set => _transition = value; }
-
-    /// <value> Variable responsable de devolver la curva de comportamiento. </value>  
-    public AnimationCurve MoveCurve { get => _scaleCurve; private set { } }
+    public float Transition { get => _transition; set => _transition = value; } 
 
     #endregion
 }
