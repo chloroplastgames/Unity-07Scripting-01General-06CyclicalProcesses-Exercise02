@@ -7,7 +7,6 @@
 /// Programmers: Valdeir Antonio
 /// Description: ejercicio usando corrutina.
 ///
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Data", menuName = "Prototype/Scale Game Data")]
@@ -28,7 +27,9 @@ public class ScaleGameData : ScriptableObject
 
     [SerializeField] private float _transition = 2f;
 
-    [SerializeField] private bool _scale; 
+    [SerializeField] private bool _scale;
+
+    [SerializeField] private AnimationCurve _ScaleCurve;
 
     #endregion
 
@@ -43,11 +44,15 @@ public class ScaleGameData : ScriptableObject
     /// <value> Variable responsable de devolver la position actual. </value>v
     public Vector3 CurrentValue { get => _currentValue; set => _currentValue = value; }
 
+    /// <value> Variable responsable de devolver el multiplicador de la escala. </value>  
     public float ScaleMultiplier { get => _scaleMultiplier; private set { } }
 
     public bool Scale { get => _scale; set => _scale = value; }
     /// <value> Variable responsable de devolver la duracion dela transition. </value>  
-    public float Transition { get => _transition; set => _transition = value; } 
+    public float Transition { get => _transition; set => _transition = value; }
+
+    /// <value> Variable responsable de devolver la curva de comportamiento. </value>  
+    public AnimationCurve ScaleCurve { get => _ScaleCurve; private set { }}
 
     #endregion
 }

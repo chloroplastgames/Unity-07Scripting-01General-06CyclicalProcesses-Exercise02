@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d2e49770a423c44a6948b7f3dc6513, type: 3}
   m_Name: ScaleData
   m_EditorClassIdentifier: 
-  _loops: 0
-  _currentValue: {x: 0, y: 0, z: 0}
-  _scaleMultiplier: 3
+  _loops: 3
+  _currentValue: {x: 5, y: 5, z: 5}
+  _scaleMultiplier: 2
   _transitionStep: 0
   _transition: 2
   _scale: 0
-  _scaleCurve:
+  _ScaleCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -33,8 +33,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
