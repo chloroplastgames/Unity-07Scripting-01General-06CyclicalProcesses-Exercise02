@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections;
 using UnityEngine;
 
 public class ObjectScaler : MonoBehaviour
@@ -14,16 +14,6 @@ public class ObjectScaler : MonoBehaviour
 
     private PointsMovement _pointsMovement;
 
-    private bool _scale;
-
-    private Vector3 _currentValue;
-
-    private float _transitionStep;
-
-    private int _steps;
-
-    private float _direction = 1;
-
     private void Awake()
     {
         _pointsMovement = GetComponent<PointsMovement>();
@@ -31,45 +21,44 @@ public class ObjectScaler : MonoBehaviour
 
     private void Start()
     {
-        _currentValue = transform.localScale;
 
-        _transitionStep = 0;
-
-        _steps = 0;
-
-        _scale = false;
+        StartCoroutine(DoCheckLoops());
     }
 
-    void Update()
+
+    private IEnumerator DoCheckLoops()
     {
-        if (_pointsMovement.Loops % _loops == 0)
+        yield return new WaitUntil(() => _pointsMovement.Loops % _loops == 0);
+
+        yield return StartCoroutine(DoScale());
+
+        StartCoroutine(DoCheckLoops());
+    }
+
+    private IEnumerator DoScale()
+    {
+        Vector3 _current = transform.localScale;
+
+        Vector3 _next = _current * _scaleMultiplier;
+
+        yield return StartCoroutine(DoTransition(_current, _next));
+       
+        yield return StartCoroutine(DoTransition(_next, _current));
+    }
+
+    private IEnumerator DoTransition(Vector3 current, Vector3 next)
+    {
+        float _transitionStep = 0;
+
+        while (_transition > _transitionStep)
         {
-            _scale = true;
-        }
+            _transitionStep += Time.deltaTime;
 
-        if (_scale && _steps < 1)
-        {
+            float step = _transitionStep / _transition;
 
-            _transitionStep += _direction * Time.deltaTime;
+            transform.localScale = Vector3.Lerp(current, next, step);
 
-            float step = Math.Min(_transitionStep / _transition, 1);
-
-            transform.localScale = Vector3.Lerp(_currentValue, _currentValue * _scaleMultiplier, step);
-
-            if (step >= 1)
-            {
-                _direction = -_direction;
-            }
-            else if (step <= 0)
-            {
-                _direction = -_direction;
-
-                _scale = false;
-
-                _transitionStep = 0;
-
-                _steps = 0;
-            }
+            yield return null;
         }
     }
 }
